@@ -97,7 +97,7 @@ public class HomeFragment extends Fragment {
 
                     }
                 });
-        binding.imageList.setLayoutManager(new GridLayoutManager(getContext(),1));
+        binding.imageList.setLayoutManager(new GridLayoutManager(getContext(),2));
         binding.imageList.setAdapter(adapter1);
 
 
