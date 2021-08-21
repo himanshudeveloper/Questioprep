@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "730485608879",
+    "project_id": "question-prep-f5300",
+    "storage_bucket": "question-prep-f5300.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730485608879:android:e8b8c36062df5f0b5d9f5a",
+        "android_client_info": {
+          "package_name": "com.examplmakecodeeasy.questionprep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "730485608879-tj91gov5j691jrh0fgappe6u2eajifp6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgIeUcARC-KVoYlSlWBKSA8I-GtFbWFFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "730485608879-tj91gov5j691jrh0fgappe6u2eajifp6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+
+
+    tools:context=".QuizActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="393dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-2803588257571593/8264338254"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </com.google.android.gms.ads.AdView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmer_view_container"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        shimmer:duration="800">
+
+                        <!-- Adding 7 rows of placeholders -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/data_placeholder_layout" />
+
+                            <include layout="@layout/data_placeholder_layout" />
+
+                            <include layout="@layout/data_placeholder_layout" />
+
+                            <include layout="@layout/data_placeholder_layout" />
+
+                            <include layout="@layout/data_placeholder_layout" />
+
+                            <include layout="@layout/data_placeholder_layout" />
+
+                            <include layout="@layout/data_placeholder_layout" />
+                        </LinearLayout>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="130dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/background_bootom"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animation_view"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+
+                        android:layout_marginStart="32dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginRight="32dp"
+                        app:layout_constraintBottom_toTopOf="@+id/view5"
+                        app:layout_constraintEnd_toStartOf="@+id/questionCounter"
+                        app:layout_constraintStart_toEndOf="@+id/timer"
+                        app:layout_constraintTop_toTopOf="@+id/view4"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/time"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginRight="32dp"
+                        android:background="@drawable/rounded_box"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/timer" />
+
+                    <TextView
+                        android:id="@+id/timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:drawablePadding="10dp"
+
+                        android:text="@string/time"
+                        android:textColor="@color/color_white"
+                        android:textSize="20sp"
+                        app:drawableLeftCompat="@drawable/ic_timer"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/questionCounter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:drawablePadding="10dp"
+
+                        android:text="@string/counter"
+                        android:textColor="@color/color_white"
+                        android:textSize="20sp"
+                        app:drawableRightCompat="@drawable/ic_question"
+                        app:drawableTint="@color/color_white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/question"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
+
+                        android:gravity="center"
+                        android:text="@string/loadingdata"
+                        android:textColor="@color/color_white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/view5"
+                        app:layout_constraintEnd_toEndOf="@+id/view5"
+                        app:layout_constraintStart_toStartOf="@+id/view5"
+                        app:layout_constraintTop_toTopOf="@+id/view5" />
+
+
+                    <TextView
+                        android:id="@+id/option_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/option_unselected"
+                        android:onClick="onClick"
+                        android:padding="15dp"
+                        app:layout_constraintEnd_toEndOf="@+id/view5"
+                        app:layout_constraintStart_toStartOf="@+id/view5"
+                        app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+                    <TextView
+                        android:id="@+id/option_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/option_unselected"
+                        android:onClick="onClick"
+                        android:padding="15dp"
+                        app:layout_constraintEnd_toEndOf="@+id/option_1"
+                        app:layout_constraintStart_toStartOf="@+id/option_1"
+                        app:layout_constraintTop_toBottomOf="@+id/option_1" />
+
+                    <TextView
+                        android:id="@+id/option_3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/option_unselected"
+                        android:onClick="onClick"
+                        android:padding="15dp"
+                        app:layout_constraintEnd_toEndOf="@+id/option_2"
+                        app:layout_constraintStart_toStartOf="@+id/option_2"
+                        app:layout_constraintTop_toBottomOf="@+id/option_2" />
+
+                    <TextView
+                        android:id="@+id/option_4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/option_unselected"
+                        android:onClick="onClick"
+                        android:padding="15dp"
+                        app:layout_constraintEnd_toEndOf="@+id/option_3"
+                        app:layout_constraintStart_toStartOf="@+id/option_3"
+                        app:layout_constraintTop_toBottomOf="@+id/option_3" />
+
+                    <Button
+                        android:id="@+id/nextBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginRight="32dp"
+                        android:background="@drawable/button_2"
+                        android:onClick="onClick"
+                        android:text="@string/next"
+                        android:textColor="#2E7D32"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/quizbtn"
+                        app:layout_constraintTop_toBottomOf="@+id/option_4" />
+
+                    <Button
+                        android:id="@+id/quizbtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/button_1"
+                        android:text="@string/Quit"
+                        android:textColor="@color/color_white"
+                        app:layout_constraintEnd_toStartOf="@+id/nextBtn"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/option_4" />
+
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

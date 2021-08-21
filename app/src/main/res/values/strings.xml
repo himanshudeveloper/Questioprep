@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Question prep</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="facebook_app_id">1822925251222582</string>
+    <string name="signin">SIGNIN</string>
+    <string name="createyouracount">Create your account</string>
+    <string name="fullname">Enter your name</string>
+    <string name="Email">Enter your Email adddress</string>
+    <string name="password">Create new Password</string>
+    <string name="Submit">Submit</string>
+    <string name="register">or Continue with</string>
+    <string name="Google">Google</string>
+    <string name="googlesignin">To continue, Google will share your name, email address and profile picture with Question prep</string>
+    <string name="loginwithaccount">Login with Account</string>
+    <string name="forgot_your_password">forgot your Password</string>
+    <string name="login">Login</string>
+    <string name="Secureworld">from Secure world</string>
+    <string name="next">next</string>
+    <string name="Quit">Quit</string>
+    <string name="time">24</string>
+    <string name="counter">1/10</string>
+    <string name="loadingdata">loading data from server</string>
+    <string name="Congratulations">Congratulations!</string>
+    <string name="your_Score">your Score</string>
+    <string name="score">9/10</string>
+    <string name="Earnedcoins">Earned Coins</string>
+    <string name="coin">50</string>
+    <string name="share">Share</string>
+    <string name="restart">Restart</string>
+    <string name="imagedesc">Trophy</string>
+    <string name="name">name</string>
+    <string name="your_email">your email</string>
+    <string name="update_Profile">update profile</string>
+    <string name="logout">logout</string>
+
+</resources>
