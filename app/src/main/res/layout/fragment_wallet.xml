@@ -32,6 +32,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="you need 30000 coin to withdraw"
+        app:layout_constraintBottom_toBottomOf="@+id/view6"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintStart_toStartOf="@+id/view6" />
+
+    <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,7 +74,6 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="11dp"
-        android:text="25"
         android:textColor="@color/color_white"
         android:textSize="46sp"
         app:layout_constraintEnd_toEndOf="@+id/textView12"

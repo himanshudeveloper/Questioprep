@@ -267,6 +267,7 @@ public class QuizActivity extends AppCompatActivity {
                 break;
         }
     }
+
     private void quitButton(){
         binding.quizbtn.setOnClickListener(new View.OnClickListener() {
             @Override

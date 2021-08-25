@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,13 +38,20 @@ public  class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Categ
     }
 
     @Override
-    public void onBindViewHolder(@NonNull  CategoryAdapter.CategoryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CategoryAdapter.CategoryViewHolder holder, int position) {
     final CategoryModel model = categoryModels.get(position);
 
     holder.textView.setText(model.getCategoryName());
-        Glide.with(context)
-                .load(model.getCategoryImage())
+
+
+        Picasso.get().load(model.getCategoryImage())
+
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.loading)
                 .into(holder.imageView);
+       /* Glide.with(context)
+                .load(model.getCategoryImage())
+                .into(holder.imageView);*/
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +59,7 @@ public  class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Categ
                 Intent intent = new Intent(context,QuizActivity.class);
                 intent.putExtra("catId",model.getCategoryId());
                 context.startActivity(intent);
+
 
 
             }
@@ -66,12 +74,16 @@ public  class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Categ
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder{
+
         ImageView imageView;
         TextView textView;
+
         public CategoryViewHolder(@NonNull  View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
             textView = itemView.findViewById(R.id.category);
+
+
         }
     }
 }

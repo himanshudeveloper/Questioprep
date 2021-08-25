@@ -139,11 +139,12 @@
         android:id="@+id/google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+
         android:background="@drawable/submitbtn"
-
         android:drawableStart="@drawable/ic_google"
-        android:drawableLeft="@drawable/ic_google"
 
+        android:drawableLeft="@drawable/ic_google"
         android:text="@string/Google"
         android:textColor="#FBC02D"
         app:layout_constraintEnd_toStartOf="@+id/login_button"
@@ -158,7 +159,7 @@
 
 
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -170,6 +171,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
         android:text="@string/googlesignin"
         android:textColor="#E1BEE7"
         app:layout_constraintEnd_toEndOf="@+id/textView2"

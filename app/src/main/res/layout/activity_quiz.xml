@@ -67,11 +67,20 @@
 
                             <include layout="@layout/data_placeholder_layout" />
 
-                            <include layout="@layout/data_placeholder_layout" />
+                            <include
+                                layout="@layout/data_placeholder_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp" />
 
-                            <include layout="@layout/data_placeholder_layout" />
+                            <include
+                                layout="@layout/data_placeholder_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp" />
 
-                            <include layout="@layout/data_placeholder_layout" />
+                            <include
+                                layout="@layout/data_placeholder_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="70dp" />
 
                             <include layout="@layout/data_placeholder_layout" />
                         </LinearLayout>
@@ -210,18 +219,6 @@
                         app:layout_constraintStart_toStartOf="@+id/option_2"
                         app:layout_constraintTop_toBottomOf="@+id/option_2" />
 
-                    <TextView
-                        android:id="@+id/option_4"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/option_unselected"
-                        android:onClick="onClick"
-                        android:padding="15dp"
-                        app:layout_constraintEnd_toEndOf="@+id/option_3"
-                        app:layout_constraintStart_toStartOf="@+id/option_3"
-                        app:layout_constraintTop_toBottomOf="@+id/option_3" />
-
                     <Button
                         android:id="@+id/nextBtn"
                         android:layout_width="0dp"
@@ -239,6 +236,18 @@
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/quizbtn"
                         app:layout_constraintTop_toBottomOf="@+id/option_4" />
+
+                    <TextView
+                        android:id="@+id/option_4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/option_unselected"
+                        android:onClick="onClick"
+                        android:padding="15dp"
+                        app:layout_constraintEnd_toEndOf="@+id/option_3"
+                        app:layout_constraintStart_toStartOf="@+id/option_3"
+                        app:layout_constraintTop_toBottomOf="@+id/option_3" />
 
                     <Button
                         android:id="@+id/quizbtn"
