@@ -64,6 +64,8 @@ public class HomeFragment extends Fragment {
         Picasso.get().load(R.drawable.bch)
 
                 .placeholder(R.drawable.loading)
+                .centerCrop()
+                .resize(96,96)
 
                 .error(R.drawable.loading)
                 .into(binding.imageView);

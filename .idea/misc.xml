@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/drawable/buttonshape.xml" value="0.24114583333333334" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/drawable/user.xml" value="0.24114583333333334" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/activity_main.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/activity_quiz.xml" value="0.264" />
@@ -12,9 +13,11 @@
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/activity_signup.xml" value="0.264" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/activity_spin.xml" value="0.1" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/activity_uploadimage.xml" value="0.2" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/fragment_leadorboard.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/fragment_user_profile_.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/fragment_wallet.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/item_category.xml" value="0.2" />
         <entry key="..\:/Users/HIMANSHU SINGH/AndroidStudioProjects/Questionprep/app/src/main/res/layout/item_image.xml" value="0.22083333333333333" />

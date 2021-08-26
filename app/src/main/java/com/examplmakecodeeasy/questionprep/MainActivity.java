@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                        transaction.commit();
                        break;
                    case 3:
-                       transaction.replace(R.id.content,new profileFragment());
+                       transaction.replace(R.id.content,new userProfile_Fragment());
                        transaction.commit();
                        break;
 
