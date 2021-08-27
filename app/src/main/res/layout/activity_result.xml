@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <TextView
-        android:id="@+id/score"
+        android:id="@+id/score1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -42,16 +42,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
-        android:id="@+id/yourcoins"
+        android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_mono_bold"
         android:text="@string/score"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/score"
-        app:layout_constraintStart_toStartOf="@+id/score"
-        app:layout_constraintTop_toBottomOf="@+id/score" />
+        app:layout_constraintEnd_toEndOf="@+id/score1"
+        app:layout_constraintStart_toStartOf="@+id/score1"
+        app:layout_constraintTop_toBottomOf="@+id/score1" />
 
     <TextView
         android:id="@+id/textView13"
@@ -60,9 +60,9 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_mono_bold"
         android:text="@string/Earnedcoins"
-        app:layout_constraintEnd_toEndOf="@+id/yourcoins"
-        app:layout_constraintStart_toStartOf="@+id/yourcoins"
-        app:layout_constraintTop_toBottomOf="@+id/yourcoins" />
+        app:layout_constraintEnd_toEndOf="@+id/score"
+        app:layout_constraintStart_toStartOf="@+id/score"
+        app:layout_constraintTop_toBottomOf="@+id/score" />
 
     <TextView
         android:id="@+id/earncoins"

@@ -2,7 +2,11 @@ package com.examplmakecodeeasy.questionprep;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -30,6 +34,8 @@ import java.util.Collections;
 import java.util.Random;
 
 public class QuizActivity extends AppCompatActivity {
+
+    BroadcastReceiver mBroadcastReceiver;
     ActivityQuizBinding binding;
     ArrayList<Question> questions;
     int index=0;
@@ -39,6 +45,7 @@ public class QuizActivity extends AppCompatActivity {
     int CorrectAnswer = 0;
     private InterstitialAd mInterstitialAd;
     private AdView mAdView;
+    Boolean next = false;
 
 
 
@@ -47,6 +54,11 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityQuizBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+
+        mBroadcastReceiver = new Connection();
+        registoreNetworkBroadcast();
 
         questions = new ArrayList<>();
         database = FirebaseFirestore.getInstance();
@@ -107,14 +119,14 @@ public class QuizActivity extends AppCompatActivity {
 
 
 
-        InterstitialAd.load(this,"ca-app-pub-2803588257571593/1231385415", adRequest,
+        InterstitialAd.load(this,"ca-app-pub-4252816301618953/5959478193", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
                         // The mInterstitialAd reference will be null until
                         // an ad is loaded.
                         mInterstitialAd = interstitialAd;
-                        Log.i(TAG, "onAdLoaded");
+
                     }
 
                     @Override
@@ -130,7 +142,7 @@ public class QuizActivity extends AppCompatActivity {
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
                 super.onAdLoaded();
-                Toast.makeText(QuizActivity.this, "on ad loaded", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -150,6 +162,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onAdClicked() {
                 super.onAdClicked();
+                Toast.makeText(QuizActivity.this, "Don't click on ad", Toast.LENGTH_SHORT).show();
                 // Code to be executed when the user clicks on an ad.
             }
 
@@ -167,6 +180,23 @@ public class QuizActivity extends AppCompatActivity {
 
 
     }
+    protected void registoreNetworkBroadcast(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            registerReceiver(mBroadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
+        }
+    }
+    protected void unregisterdNetwork(){
+        try{
+            unregisterReceiver(mBroadcastReceiver);
+        }catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
+    }
+
+
+
+
     void resetTimer(){
         timer = new CountDownTimer(30000,1000) {
             @Override
@@ -244,27 +274,33 @@ public class QuizActivity extends AppCompatActivity {
 
                 TextView selected = (TextView) view;
                 checkAnswer(selected);
+                next = true;
                 if (timer !=null)
                     timer.cancel();
 
                 break;
             case R.id.nextBtn:
-                reset();
-                if (index < questions.size()) {
-                    index++;
+                if(next) {
+                    reset();
+                    if (index < questions.size()) {
+                        index++;
 
-                    setNextQuestion();
+                        setNextQuestion();
+                        next = false;
 
-                }else {
-                    Intent intent = new Intent(QuizActivity.this,ResultActivity.class);
-                    intent.putExtra("correct",CorrectAnswer);
-                    intent.putExtra("total",questions.size());
-                    startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+                        intent.putExtra("correct", CorrectAnswer);
+                        intent.putExtra("total", questions.size());
+                        startActivity(intent);
 
-                    Toast.makeText(this, "Quiz finished", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Quiz finished", Toast.LENGTH_SHORT).show();
 
+                    }
+                    break;
+                }else{
+                    Toast.makeText(QuizActivity.this, "please select option", Toast.LENGTH_SHORT).show();
                 }
-                break;
         }
     }
 
@@ -303,6 +339,7 @@ public class QuizActivity extends AppCompatActivity {
         super.onDestroy();
         if(questions!=null){
             questions.removeAll(Collections.singleton(true));
+            unregisterdNetwork();
 
 
 

@@ -1,6 +1,9 @@
 package com.examplmakecodeeasy.questionprep;
 
-import android.content.Context;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +27,10 @@ import me.ibrahimsn.lib.OnItemSelectedListener;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private AdView mAdView;
-    private Context context;
+    BroadcastReceiver mBroadcastReceiver;
+
+
+
 
 
     @Override
@@ -32,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        mBroadcastReceiver = new Connection();
+        registoreNetworkBroadcast();
 
 
 
@@ -62,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                    case 0:
                        transaction.replace(R.id.content,new HomeFragment());
                        transaction.commit();
-                       Toast.makeText(MainActivity.this, "home", Toast.LENGTH_SHORT).show();
+
                        break;
                    case 1:
                        transaction.replace(R.id.content,new LeadorboardFragment());
@@ -87,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
                 super.onAdLoaded();
-                Toast.makeText(MainActivity.this, "on ad loaded", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -125,6 +134,21 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    private void registoreNetworkBroadcast() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            registerReceiver(mBroadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
+        }
+    }
+    protected void unregisterdNetwork(){
+        try{
+            unregisterReceiver(mBroadcastReceiver);
+        }catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId()==R.id.wallet) {
@@ -138,5 +162,9 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterdNetwork();
+    }
 }

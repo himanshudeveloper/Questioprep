@@ -45,6 +45,7 @@ public class uploadimageActivity extends AppCompatActivity {
         mActivityUploadimageBinding = ActivityUploadimageBinding.inflate(getLayoutInflater());
         setContentView(mActivityUploadimageBinding.getRoot());
 
+
         mStorage= FirebaseStorage.getInstance();
         mStorageReference = mStorage.getReference();
         database = FirebaseFirestore.getInstance();
@@ -127,8 +128,9 @@ public class uploadimageActivity extends AppCompatActivity {
 
                     Picasso.get()
                             .load(url)
-                            .resize(50, 50)
+                            .resize(512,512)
                             .centerCrop()
+
                             .placeholder(R.drawable.loading)
                             .error(R.drawable.loading)
                             .into(mActivityUploadimageBinding.imageselect);

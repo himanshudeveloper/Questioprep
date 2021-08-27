@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.examplmakecodeeasy.questionprep.databinding.RowLeaderboadsBinding;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -42,9 +42,18 @@ public class LeaderbordsAdapter extends RecyclerView.Adapter<LeaderbordsAdapter.
         holder.binding.coin.setText(String.valueOf(user.getCoins()));
         holder.binding.index.setText(String.format("#%d",position+1));
 
-        Glide.with(context)
+        Picasso.get()
                 .load(user.getProfile())
+                .resize(100,100)
+                .centerCrop()
+
+                .placeholder(R.drawable.loading)
+                .error(R.drawable.loading)
                 .into(holder.binding.imageView8);
+
+//        Glide.with(context)
+//                .load(user.getProfile())
+//                .into(holder.binding.imageView8);
 
     }
 

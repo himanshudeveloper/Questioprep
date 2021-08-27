@@ -15,9 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuestionPrep"
         android:usesCleartextTraffic="true">
+        <receiver android:name=".Connection">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+
+        </receiver>
         <activity
             android:name=".uploadimageActivity"
-            android:exported="true" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:exported="true" ></activity>
 
         <activity android:name=".SplashActivity">
         <intent-filter>
@@ -54,7 +62,7 @@
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2803588257571593~9361797505" />
+            android:value="ca-app-pub-4252816301618953~2211649341" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

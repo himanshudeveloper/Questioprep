@@ -88,7 +88,7 @@ public class userProfile_Fragment extends Fragment {
 
                 Picasso.get()
                         .load(url)
-                        .resize(180, 180)
+                        .resize(512,512)
                         .centerCrop()
                         .placeholder(R.drawable.loading)
                         .error(R.drawable.loading)

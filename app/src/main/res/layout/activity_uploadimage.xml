@@ -5,92 +5,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#7F40D35B"
-    android:padding="16dp"
     tools:context=".uploadimageActivity">
 
 
-    <TextView
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:drawableLeft="@drawable/ic_baseline_login_24"
-        android:padding="10dp"
-        android:text="@string/logout"
-        android:textColor="@color/white"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.946"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="77dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="64dp"
-        android:src="@drawable/ic_baseline_add_a_photo_24"
-        app:layout_constraintBottom_toTopOf="@+id/edtname"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageselect"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#FFEB3B"/>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageselect"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawableLeft="@drawable/ic_baseline_login_24"
+            android:padding="10dp"
+            android:text="@string/logout"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.946"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:src="@drawable/use"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logout" />
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginBottom="64dp"
+            android:src="@drawable/ic_baseline_add_a_photo_24"
+            app:civ_border_color="#FFEB3B"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/edtname"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageselect" />
 
-    <EditText
-        android:id="@+id/edtname"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageselect" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageselect"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
 
-    <TextView
-        android:id="@+id/txtemailupload"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text="Email"
-        app:layout_constraintEnd_toEndOf="@+id/edtname"
-        app:layout_constraintStart_toStartOf="@+id/edtname"
-        app:layout_constraintTop_toBottomOf="@+id/edtname" />
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/use"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logout" />
 
-    <Button
-        android:id="@+id/btnupdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="update"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtemailupload" />
+        <EditText
+            android:id="@+id/edtname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageselect" />
+
+        <TextView
+            android:id="@+id/txtemailupload"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="Email"
+            app:layout_constraintEnd_toEndOf="@+id/edtname"
+            app:layout_constraintStart_toStartOf="@+id/edtname"
+            app:layout_constraintTop_toBottomOf="@+id/edtname" />
+
+        <Button
+            android:id="@+id/btnupdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtemailupload" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
