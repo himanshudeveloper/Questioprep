@@ -1,7 +1,5 @@
 package com.examplmakecodeeasy.questionprep;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -9,28 +7,19 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.examplmakecodeeasy.questionprep.databinding.ActivityQuizBinding;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public class QuizActivity extends AppCompatActivity {
@@ -43,9 +32,13 @@ public class QuizActivity extends AppCompatActivity {
     CountDownTimer timer;
     FirebaseFirestore database;
     int CorrectAnswer = 0;
-    private InterstitialAd mInterstitialAd;
-    private AdView mAdView;
     Boolean next = false;
+
+   // private InterstitialAd mInterstitialAd;
+
+
+
+
 
 
 
@@ -54,6 +47,34 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityQuizBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+//
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+//        });
+////
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//
+//        InterstitialAd.load(this,"ca-app-pub-7167914745572974/1434430311", adRequest,
+//                new InterstitialAdLoadCallback() {
+//                    @Override
+//                    public void onAdLoaded( InterstitialAd interstitialAd) {
+//                        // The mInterstitialAd reference will be null until
+//                        // an ad is loaded.
+//                        mInterstitialAd = interstitialAd;
+//                        Log.i(TAG, "onAdLoaded");
+//                    }
+//
+//                    @Override
+//                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+//                        // Handle the error
+//                        Log.i(TAG, loadAdError.getMessage());
+//                        mInterstitialAd = null;
+//                    }
+//                });
+//
+//
 
 
 
@@ -66,9 +87,6 @@ public class QuizActivity extends AppCompatActivity {
         Random random = new Random();
        final int rand = random.nextInt(50);
        quitButton();
-        mAdView = findViewById(R.id.adView);
-        final AdRequest adRequest1 = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest1);
 
 
 
@@ -105,7 +123,7 @@ public class QuizActivity extends AppCompatActivity {
                 }else {
                     for (DocumentSnapshot snapshot :queryDocumentSnapshots){
                         Question question = snapshot.toObject(Question.class);
-                        Toast.makeText(QuizActivity.this, "false", Toast.LENGTH_SHORT).show();
+                        ///Toast.makeText(QuizActivity.this, "false", Toast.LENGTH_SHORT).show();
                         questions.add(question);
                     }
                     setNextQuestion();
@@ -115,64 +133,6 @@ public class QuizActivity extends AppCompatActivity {
 
             }
         });
-        final AdRequest adRequest = new AdRequest.Builder().build();
-
-
-
-        InterstitialAd.load(this,"ca-app-pub-4252816301618953/5959478193", adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
-
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
-                        Log.i(TAG, loadAdError.getMessage());
-                        super.onAdFailedToLoad(loadAdError);
-
-                    }
-                });
-        mAdView.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-                super.onAdLoaded();
-
-            }
-
-            @Override
-            public void onAdFailedToLoad(LoadAdError adError) {
-                // Code to be executed when an ad request fails.
-                super.onAdFailedToLoad(adError);
-                mAdView.loadAd(adRequest1);
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
-                super.onAdOpened();
-            }
-
-            @Override
-            public void onAdClicked() {
-                super.onAdClicked();
-                Toast.makeText(QuizActivity.this, "Don't click on ad", Toast.LENGTH_SHORT).show();
-                // Code to be executed when the user clicks on an ad.
-            }
-
-            @Override
-            public void onAdClosed() {
-                // Code to be executed when the user is about to return
-                // to the app after tapping on an ad.
-            }
-        });
-
 
        resetTimer();
        setNextQuestion();
@@ -230,7 +190,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
         if (index<questions.size()){
-            binding.questionCounter.setText(String.format("%d/%d",(index+1),questions.size()));
+            binding.questionCounter.setText(String.format("%d/%d",(index)+1,questions.size()));
             question = questions.get(index);
             binding.question.setText(question.getQuestion());
             binding.option1.setText(question.getOption1());
@@ -244,9 +204,9 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
     void checkAnswer(TextView textView){
-        String selectedAnswer = textView.getText().toString().trim().toLowerCase();
+        String selectedAnswer = textView.getText().toString().trim().toLowerCase().replaceAll("\\s","");
 
-        if (selectedAnswer.equals(question.getAnswer().trim().toLowerCase())) {
+        if (selectedAnswer.equals(question.getAnswer().trim().toLowerCase().replaceAll("\\s",""))) {
             CorrectAnswer++;
             textView.setBackground(getResources().getDrawable(R.drawable.option_right));
         }
@@ -282,19 +242,23 @@ public class QuizActivity extends AppCompatActivity {
             case R.id.nextBtn:
                 if(next) {
                     reset();
-                    if (index < questions.size()) {
+                    if (index < questions.size()-1) {
+                        applyAnimations();
+
                         index++;
-
                         setNextQuestion();
-                        next = false;
 
+                     next = false;
                     } else {
+
+                        Toast.makeText(this, "Quiz finished", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
                         intent.putExtra("correct", CorrectAnswer);
                         intent.putExtra("total", questions.size());
                         startActivity(intent);
+                        index =1;
+                        finish();
 
-                        Toast.makeText(this, "Quiz finished", Toast.LENGTH_SHORT).show();
 
                     }
                     break;
@@ -308,11 +272,19 @@ public class QuizActivity extends AppCompatActivity {
         binding.quizbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 Intent intent1 = new Intent(QuizActivity.this, MainActivity.class);
                 startActivity(intent1);
-                if (mInterstitialAd != null) {
-                    mInterstitialAd.show(QuizActivity.this);
-                }
+//                if (mInterstitialAd != null) {
+//                    mInterstitialAd.show(QuizActivity.this);
+//                } else {
+//                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
+//                }
+
+                finishAffinity();
+
+
 
             }
         });
@@ -333,23 +305,95 @@ public class QuizActivity extends AppCompatActivity {
         super.onPause();
         binding.shimmerViewContainer.startShimmer();
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(questions!=null){
-            questions.removeAll(Collections.singleton(true));
-            unregisterdNetwork();
+    private   void  applyAnimations (){
+        binding.nextBtn.setClickable(false);
+        binding.quizbtn.setClickable(false);
 
 
 
-            questions = null;
+        binding.option1.animate().alpha(0f).translationXBy(1200f).setDuration(400L);
+        binding.option2.animate().alpha(0f).translationXBy(-1200f).setDuration(400L);
+        binding.option3.animate().alpha(0f).translationXBy(1200f).setDuration(400L);
+        binding.option4.animate().alpha(0f).translationXBy(-1200f).setDuration(400L);
+        binding.nextBtn.animate().alpha(0f).translationYBy(1200f).setDuration(400L);
+        binding.quizbtn.animate().alpha(0f).translationYBy(1200f).setDuration(400L);
+        binding.question.animate().alpha(0f).translationYBy(-1200f).setDuration(400L);
 
-        }
 
+        Thread td = new Thread() {
+
+            public void run() {
+                try {
+                    sleep(800);
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+
+                }
+                finally{
+                    destroyAnimations();
+
+                }
+            }
+
+        };td.start();
 
 
 
 
     }
+    private  void  destroyAnimations(){
+        binding.nextBtn.setClickable(true);
+        binding.quizbtn.setClickable(true);
+//        binding.option1.setEnabled(true);
+//        binding.option4.setEnabled(true);
+//        binding.option2.setEnabled(true);
+//        binding.option3.setEnabled(true);
+
+
+        binding.option1.animate().alpha(1f).translationXBy(-1200f).setDuration(400L);
+        binding.option2.animate().alpha(1f).translationXBy(1200f).setDuration(400L);
+        binding.option3.animate().alpha(1f).translationXBy(-1200f).setDuration(400L);
+        binding.option4.animate().alpha(1f).translationXBy(1200f).setDuration(400L);
+        binding.nextBtn.animate().alpha(1f).translationYBy(-1200f).setDuration(400L);
+        binding.quizbtn.animate().alpha(1f).translationYBy(-1200f).setDuration(400L);
+        binding.question.animate().alpha(1f).translationYBy(1200f).setDuration(400L);
+
+
+        Thread td = new Thread() {
+
+            public void run() {
+                try {
+                    sleep(400);
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+
+                }
+                finally{
+
+                }
+            }
+
+        };td.start();
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterdNetwork();
+
+
+        if(questions!=null){
+            questions.clear();
+
+
+        }
+
+
+    }
+
+
 }

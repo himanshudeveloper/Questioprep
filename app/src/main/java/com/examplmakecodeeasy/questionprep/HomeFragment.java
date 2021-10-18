@@ -32,6 +32,7 @@ public class HomeFragment extends Fragment {
 
     }
     FragmentHomeBinding binding;
+    FirebaseFirestore database;
 
 
 
@@ -42,26 +43,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentHomeBinding.inflate(inflater,container,false);
-       FirebaseFirestore database = FirebaseFirestore.getInstance();
-        database.collection("image")
-                .document("hkkk")
-                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
+        database = FirebaseFirestore.getInstance();
 
-                String url = (String) documentSnapshot.get("hk");
-
-//                 Glide.with(getContext())
-//                .load(url)
-//                .into(binding.imageView);
-                Picasso.get().load(url)
-                        .placeholder(R.drawable.welcome)
-                       .error(R.drawable.welcome)
-                        .into(binding.imageView);
-
-
-            }
-        });
 
 
 
@@ -93,6 +76,27 @@ public class HomeFragment extends Fragment {
 
         binding.categoruList.setLayoutManager(new GridLayoutManager(getContext(),2));
         binding.categoruList.setAdapter(adapter);
+
+        database.collection("image")
+                .document("hkkk")
+                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                String url = (String) documentSnapshot.get("hk");
+
+//                 Glide.with(getContext())
+//                .load(url)
+//                .into(binding.imageView);
+
+                Picasso.get().load(url)
+                        .placeholder(R.drawable.welcome)
+                        .error(R.drawable.welcome)
+                        .into(binding.imageView);
+
+
+            }
+        });
 
         return binding.getRoot();
     }

@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuestionPrep"
         android:usesCleartextTraffic="true">
-        <receiver android:name=".Connection">
+        <receiver android:name=".Connection"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
@@ -27,8 +28,11 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true" ></activity>
 
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity"
+            android:exported="true">
+
         <intent-filter>
+
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
@@ -62,7 +66,8 @@
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-4252816301618953~2211649341" />
+            android:value="ca-app-pub-7167914745572974~5984033504" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />

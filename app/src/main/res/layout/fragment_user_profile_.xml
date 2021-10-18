@@ -43,6 +43,7 @@
             android:id="@+id/edtnam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
 
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
@@ -62,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:gravity="center"
             android:fontFamily="serif-monospace"
             android:textColor="@color/white"
             android:textSize="24sp"

@@ -16,18 +16,6 @@
         android:orientation="vertical">
 
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="393dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-4252816301618953/6489999228"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </com.google.android.gms.ads.AdView>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -154,7 +142,6 @@
                         android:layout_marginRight="16dp"
                         android:drawablePadding="10dp"
 
-                        android:text="@string/counter"
                         android:textColor="@color/color_white"
                         android:textSize="20sp"
                         app:drawableRightCompat="@drawable/ic_question"
