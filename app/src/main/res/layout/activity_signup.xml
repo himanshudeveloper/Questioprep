@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/splash"
     tools:context=".SignupActivity">
 
 
@@ -17,8 +17,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background"
+            android:layout_height="250dp"
+            android:background="@drawable/splash"
             android:orientation="vertical">
 
             <View
@@ -94,19 +94,6 @@
 
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="@string/register"
-        android:textColor="#E1BEE7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-    <TextView
         android:id="@+id/textView"
         android:layout_width="217dp"
         android:layout_height="100dp"
@@ -121,13 +108,13 @@
 
     <Button
         android:id="@+id/alreadyhaveaccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_margin="10dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="18dp"
         android:layout_marginRight="18dp"
-        android:background="@color/colorblue"
+        android:background="@drawable/splash"
         android:shadowRadius="5"
         android:text="@string/signin"
         android:textColor="#FFFFFF"
@@ -139,7 +126,6 @@
         android:id="@+id/google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
 
         android:background="@drawable/submitbtn"
         android:drawableStart="@drawable/ic_google"
@@ -150,7 +136,7 @@
         app:layout_constraintEnd_toStartOf="@+id/login_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        tools:layout_editor_absoluteY="510dp" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
@@ -159,13 +145,12 @@
 
 
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="36dp"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/google"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck"
+        tools:layout_editor_absoluteY="510dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -174,8 +159,5 @@
         android:layout_marginTop="88dp"
         android:text="@string/googlesignin"
         android:textColor="#E1BEE7"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/login_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

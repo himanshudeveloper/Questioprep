@@ -34,51 +34,12 @@ public class QuizActivity extends AppCompatActivity {
     int CorrectAnswer = 0;
     Boolean next = false;
 
-   // private InterstitialAd mInterstitialAd;
-
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityQuizBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-//
-//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-//            @Override
-//            public void onInitializationComplete(InitializationStatus initializationStatus) {
-//            }
-//        });
-////
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//
-//        InterstitialAd.load(this,"ca-app-pub-7167914745572974/1434430311", adRequest,
-//                new InterstitialAdLoadCallback() {
-//                    @Override
-//                    public void onAdLoaded( InterstitialAd interstitialAd) {
-//                        // The mInterstitialAd reference will be null until
-//                        // an ad is loaded.
-//                        mInterstitialAd = interstitialAd;
-//                        Log.i(TAG, "onAdLoaded");
-//                    }
-//
-//                    @Override
-//                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-//                        // Handle the error
-//                        Log.i(TAG, loadAdError.getMessage());
-//                        mInterstitialAd = null;
-//                    }
-//                });
-//
-//
-
-
-
-        mBroadcastReceiver = new Connection();
+              mBroadcastReceiver = new Connection();
         registoreNetworkBroadcast();
 
         questions = new ArrayList<>();
@@ -88,10 +49,7 @@ public class QuizActivity extends AppCompatActivity {
        final int rand = random.nextInt(50);
        quitButton();
 
-
-
-
-        database.collection("categories")
+                  database.collection("categories")
                 .document(catId)
                 .collection("questions")
                 .whereGreaterThanOrEqualTo("index",rand)
@@ -276,22 +234,11 @@ public class QuizActivity extends AppCompatActivity {
 
                 Intent intent1 = new Intent(QuizActivity.this, MainActivity.class);
                 startActivity(intent1);
-//                if (mInterstitialAd != null) {
-//                    mInterstitialAd.show(QuizActivity.this);
-//                } else {
-//                    Log.d("TAG", "The interstitial ad wasn't ready yet.");
-//                }
-
                 finishAffinity();
-
-
 
             }
         });
-
-
-
-    }
+ }
 
     @Override
     protected void onResume() {

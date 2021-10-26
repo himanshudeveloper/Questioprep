@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/splash2"
     tools:context=".LoginActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -25,8 +25,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="405dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background"
+            android:background="@drawable/splash"
             android:orientation="vertical">
 
             <View
@@ -53,11 +53,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:autoLink="email"
+                android:autofillHints="emailAddress"
                 android:background="@drawable/textbox"
                 android:ems="10"
                 android:hint="@string/Email"
-                android:autofillHints="emailAddress"
-                android:autoLink="email"
                 android:inputType="textEmailAddress"
                 android:padding="15dp"
                 android:textColor="#1C1818"
@@ -68,9 +68,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:autofillHints="password"
                 android:background="@drawable/textbox"
                 android:ems="10"
-                android:autofillHints="password"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="15dp"
