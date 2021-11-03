@@ -47,23 +47,32 @@ public class QuizActivity extends AppCompatActivity {
        final String catId = getIntent().getStringExtra("catId");
         Random random = new Random();
        final int rand = random.nextInt(50);
+       binding.questionfloatingbutton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(QuizActivity.this,AddQuestionActivity.class);
+               startActivity(intent);
+           }
+       });
        quitButton();
 
                   database.collection("categories")
                 .document(catId)
                 .collection("questions")
-                .whereGreaterThanOrEqualTo("index",rand)
-                .orderBy("index")
-                .limit(200).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+              //  .whereGreaterThanOrEqualTo("index",rand)
+               // .orderBy("index")
+               // .limit(200)
+                          .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 if (queryDocumentSnapshots.getDocuments().size() < 50){
                     database.collection("categories")
                             .document(catId)
                             .collection("questions")
-                            .whereLessThanOrEqualTo("index",rand)
-                            .orderBy("index")
-                            .limit(50).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                           // .whereLessThanOrEqualTo("index",rand)
+                          //  .orderBy("index")
+                          //  .limit(50)
+                            .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
@@ -258,13 +267,13 @@ public class QuizActivity extends AppCompatActivity {
 
 
 
-        binding.option1.animate().alpha(0f).translationXBy(1200f).setDuration(400L);
-        binding.option2.animate().alpha(0f).translationXBy(-1200f).setDuration(400L);
-        binding.option3.animate().alpha(0f).translationXBy(1200f).setDuration(400L);
-        binding.option4.animate().alpha(0f).translationXBy(-1200f).setDuration(400L);
-        binding.nextBtn.animate().alpha(0f).translationYBy(1200f).setDuration(400L);
-        binding.quizbtn.animate().alpha(0f).translationYBy(1200f).setDuration(400L);
-        binding.question.animate().alpha(0f).translationYBy(-1200f).setDuration(400L);
+        binding.option1.animate().alpha(0.3f).translationXBy(200f).setDuration(400L);
+        binding.option2.animate().alpha(0.3f).translationXBy(-200f).setDuration(400L);
+        binding.option3.animate().alpha(0.3f).translationXBy(200f).setDuration(400L);
+        binding.option4.animate().alpha(0.3f).translationXBy(-200f).setDuration(400L);
+        binding.nextBtn.animate().alpha(0.3f).translationYBy(200f).setDuration(400L);
+        binding.quizbtn.animate().alpha(0.3f).translationYBy(200f).setDuration(400L);
+        binding.question.animate().alpha(0.3f).translationYBy(-200f).setDuration(400L);
 
 
         Thread td = new Thread() {
@@ -298,13 +307,13 @@ public class QuizActivity extends AppCompatActivity {
 //        binding.option3.setEnabled(true);
 
 
-        binding.option1.animate().alpha(1f).translationXBy(-1200f).setDuration(400L);
-        binding.option2.animate().alpha(1f).translationXBy(1200f).setDuration(400L);
-        binding.option3.animate().alpha(1f).translationXBy(-1200f).setDuration(400L);
-        binding.option4.animate().alpha(1f).translationXBy(1200f).setDuration(400L);
-        binding.nextBtn.animate().alpha(1f).translationYBy(-1200f).setDuration(400L);
-        binding.quizbtn.animate().alpha(1f).translationYBy(-1200f).setDuration(400L);
-        binding.question.animate().alpha(1f).translationYBy(1200f).setDuration(400L);
+        binding.option1.animate().alpha(1f).translationXBy(-200f).setDuration(400L);
+        binding.option2.animate().alpha(1f).translationXBy(200f).setDuration(400L);
+        binding.option3.animate().alpha(1f).translationXBy(-200f).setDuration(400L);
+        binding.option4.animate().alpha(1f).translationXBy(200f).setDuration(400L);
+        binding.nextBtn.animate().alpha(1f).translationYBy(-200f).setDuration(400L);
+        binding.quizbtn.animate().alpha(1f).translationYBy(-200f).setDuration(400L);
+        binding.question.animate().alpha(1f).translationYBy(200f).setDuration(400L);
 
 
         Thread td = new Thread() {

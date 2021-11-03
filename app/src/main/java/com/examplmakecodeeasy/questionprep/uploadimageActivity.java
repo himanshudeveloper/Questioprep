@@ -217,6 +217,7 @@ public class uploadimageActivity extends AppCompatActivity {
                     /snapshot.getTotalByteCount());
                     progressDialog.setMessage("Uploaded "+ (int)Progress + "%");
                     progressDialog.setCancelable(false);
+                    finish();
 
 
                 }

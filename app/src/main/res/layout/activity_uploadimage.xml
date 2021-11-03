@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#7F40D35B"
+    android:background="@drawable/splash2"
     tools:context=".uploadimageActivity">
 
 
@@ -89,6 +89,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="update"
+            app:backgroundTint="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtemailupload" />
