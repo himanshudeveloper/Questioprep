@@ -9,16 +9,28 @@
     app:layoutDescription="@xml/fragment_home_scene"
     tools:context=".MainActivity">
 
-
-    <ImageView
+    <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:iss_auto_cycle="true"
+        app:iss_period="1000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         />
+        app:iss_delay="0"/>
+
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="250dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--         />-->
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_view_container"
@@ -87,7 +99,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/shimmer_view_container"
         app:layout_constraintEnd_toEndOf="@+id/shimmer_view_container"
         app:layout_constraintStart_toStartOf="@+id/shimmer_view_container"
-        shimmer:srcCompat="@drawable/ic_baseline_add_circle_24" />
+        shimmer:srcCompat="@drawable/ic_baseline_add_circle_24"
+        tools:ignore="VectorDrawableCompat" />
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
