@@ -16,6 +16,9 @@
         android:theme="@style/Theme.QuestionPrep"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AddNewCategoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddQuestionActivity"
             android:exported="false" />
 

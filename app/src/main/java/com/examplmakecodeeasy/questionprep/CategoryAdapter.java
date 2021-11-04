@@ -58,6 +58,8 @@ public  class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Categ
 
                 Intent intent = new Intent(context,QuizActivity.class);
                 intent.putExtra("catId",model.getCategoryId());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("catName",model.getCategoryName());
                 context.startActivity(intent);
 
 

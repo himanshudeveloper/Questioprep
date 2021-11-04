@@ -33,5 +33,11 @@
     <string name="your_email">your email</string>
     <string name="update_Profile">update profile</string>
     <string name="logout">logout</string>
+    <string name="question">question</string>
+    <string name="option1">option1</string>
+    <string name="option2">option2</string>
+    <string name="option3">option3</string>
+    <string name="option4">option4</string>
+    <string name="answer">answer</string>
 
 </resources>

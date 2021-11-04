@@ -20,7 +20,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -33,6 +32,8 @@ public class QuizActivity extends AppCompatActivity {
     FirebaseFirestore database;
     int CorrectAnswer = 0;
     Boolean next = false;
+    ArrayList<CategoryModel> categoryModels;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +43,21 @@ public class QuizActivity extends AppCompatActivity {
               mBroadcastReceiver = new Connection();
         registoreNetworkBroadcast();
 
+
+
         questions = new ArrayList<>();
         database = FirebaseFirestore.getInstance();
        final String catId = getIntent().getStringExtra("catId");
-        Random random = new Random();
-       final int rand = random.nextInt(50);
+       final String catName = getIntent().getStringExtra("catName");
+       setTitle(catName+"");
+
        binding.questionfloatingbutton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                Intent intent = new Intent(QuizActivity.this,AddQuestionActivity.class);
+               intent.putExtra("catId",catId);
+               intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+               intent.putExtra("catName",catName);
                startActivity(intent);
            }
        });

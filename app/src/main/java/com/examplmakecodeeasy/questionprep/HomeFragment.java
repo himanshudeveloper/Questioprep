@@ -1,5 +1,6 @@
 package com.examplmakecodeeasy.questionprep;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +51,14 @@ public class HomeFragment extends Fragment {
 
        final ArrayList<CategoryModel> categories = new ArrayList<>();
         final CategoryAdapter adapter = new CategoryAdapter(getContext(),categories);
+
+        binding.AddCategoryFloatingbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),AddNewCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
